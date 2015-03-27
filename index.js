@@ -7,6 +7,8 @@ var PORT = 3000;
 var express = require('express');
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 // Start server
 
 app.listen(PORT, function() {
