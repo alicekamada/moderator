@@ -1,0 +1,15 @@
+{
+  "name": "moderator",
+  "version": "0.0.1",
+  "description": "Allows a community to organize and upvote questions for a townhall",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "moderator",
+    "community"
+  ],
+  "author": "Cassandra Cruz",
+  "license": "ISC"
+}
