@@ -32,12 +32,19 @@ var Question = sequelize.define('question', {
     type: Sequelize.STRING
   },
   votesUp: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   },
   votesDown: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 });
+
+// create / sync tables
+
+Topic.sync();
+Question.sync();
 
 //routes
 
