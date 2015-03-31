@@ -41,6 +41,8 @@ var Question = sequelize.define('question', {
   }
 });
 
+Topic.hasMany(Question, { as: 'Questions' });
+
 // create / sync tables
 
 sequelize.sync();
