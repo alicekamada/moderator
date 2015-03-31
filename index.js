@@ -43,8 +43,7 @@ var Question = sequelize.define('question', {
 
 // create / sync tables
 
-Topic.sync();
-Question.sync();
+sequelize.sync();
 
 //routes
 
