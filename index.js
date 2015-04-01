@@ -8,6 +8,11 @@ var DBNAME = 'test';
 var express = require('express');
 var app = express();
 var Sequelize = require('sequelize');
+var bodyParser = require('body-parser');
+
+// parse application/json
+
+app.use(bodyParser.json());
 
 // database intialize
 
