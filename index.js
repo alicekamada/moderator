@@ -51,6 +51,29 @@ sequelize.sync();
 
 app.use(express.static(__dirname + '/public'));
 
+// route for all verbs on /api/topics
+
+app.route('/topics')
+  .get(function(req,res) {
+
+  })
+  .post(function(req,res) {
+
+  });
+
+// route for all verbs on /api/topics/:id
+
+app.route('/topics/:id')
+  .get(function(req,res) {
+
+  })
+  .put(function(req,res) {
+
+  })
+  .update(function(req,res) {
+
+  });
+
 // Start server
 
 app.listen(PORT, function() {
