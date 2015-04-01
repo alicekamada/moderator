@@ -63,7 +63,7 @@ app.route('/topics')
     Topic.create({
       title: req.body.title
     }).then(function(topic) {
-      res.send(topic);i
+      res.send(topic);
     });
   });
 
