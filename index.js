@@ -11,9 +11,9 @@ var Sequelize = require('sequelize');
 
 // database intialize
 
-var sequelize = new Sequelize(DBNAME, {
+var sequelize = new Sequelize(DBNAME, null, null, {
   dialect: 'sqlite',
-  storage: './database/data.sqlite'
+  //storage: './database/data.sqlite'
 });
 
 // models for sequelize
@@ -55,10 +55,16 @@ app.use(express.static(__dirname + '/public'));
 
 app.route('/topics')
   .get(function(req,res) {
-
+    Topic.findAll().then(function(topics) {
+      res.send(topics);
+    });
   })
   .post(function(req,res) {
-
+    Topic.create({
+      title: req.body.title
+    }).then(function(topic) {
+      res.send(topic);i
+    });
   });
 
 // route for all verbs on /api/topics/:id
@@ -68,9 +74,6 @@ app.route('/topics/:id')
 
   })
   .put(function(req,res) {
-
-  })
-  .update(function(req,res) {
 
   });
 
