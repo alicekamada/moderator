@@ -108,6 +108,26 @@ app.route('/questions')
     });
   });
 
+// route for all verbs on /api/questions/:id
+
+app.route('/questions/:id')
+  .get(function(req,res) {
+    Question.find({ where: { id: req.params.id }}).then(function(question) {
+      res.send(question);
+    });
+  })
+  .put(function(req,res) {
+    Question.find({ where: { id: req.params.id } }).then(function(question) {
+      question.title = req.body.title;
+      if (req.body.method === 'upvote') { question.votesUp++; }
+      if (req.body.method === 'downvote') { question.votesDown++; }
+      question.save().then(function(question) {
+        res.send(question);
+      });
+    });
+  });
+
+
 // Start server
 
 app.listen(PORT, function() {
