@@ -46,7 +46,8 @@ var Question = sequelize.define('question', {
   }
 });
 
-Topic.hasMany(Question, { as: 'Questions' });
+Topic.hasMany(Question);
+Question.belongsTo(Topic);
 
 // create / sync tables
 
@@ -76,10 +77,17 @@ app.route('/topics')
 
 app.route('/topics/:id')
   .get(function(req,res) {
-
+    Topic.find({ where: { id: req.params.id }, include: [ Question ] }).then(function(topic) {
+      res.send(topic);
+    });
   })
   .put(function(req,res) {
-
+    Topic.find({ where: { id: req.params.id } }).then(function(topic) {
+      topic.title = req.body.title;
+      topic.save().then(function(topic) {
+        res.send(topic);
+      });
+    });
   });
 
 // Start server
