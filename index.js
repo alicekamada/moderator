@@ -90,6 +90,24 @@ app.route('/topics/:id')
     });
   });
 
+// route for all verbs on /api/questions
+
+app.route('/questions')
+  .get(function(req,res) {
+    Question.findAll().then(function(questions) {
+      res.send(questions);
+    });
+  })
+  .post(function(req,res) {
+    Question.create({
+      topicId: req.body.topicId,
+      title: req.body.title,
+      author: req.body.author
+    }).then(function(question) {
+      res.send(question);
+    });
+  });
+
 // Start server
 
 app.listen(PORT, function() {
