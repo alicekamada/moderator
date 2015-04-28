@@ -1,0 +1,24 @@
+{
+  "name": "ModeratorClient",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alicekamada/moderator",
+  "authors": [
+    "Cassandra Cruz <celkamada@gmail.com>"
+  ],
+  "description": "Frontend for the Moderator project",
+  "main": "index.html",
+  "keywords": [
+    "moderator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mithril": "~0.1.34"
+  }
+}
